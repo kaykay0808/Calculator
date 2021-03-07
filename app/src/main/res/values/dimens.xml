@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ramme">16dp</dimen>
+    <dimen name="textstize">16sp</dimen>
+    <dimen name="textstize_count">40sp</dimen>
+</resources>
