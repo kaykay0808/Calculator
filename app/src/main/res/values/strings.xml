@@ -2,6 +2,9 @@
     <string name="app_name">Calculator</string>
     <string name="clients">Kunder:</string>
     <string name="work_days_left">Jobb dager igjen:</string>
+    <string name="gross">Brutto</string>
+    <string name="net">Netto</string>
+    <string name="salary">Lønn</string>
     <string name="test_verdi">0</string>
     <string name="todo">TODO</string>
 
