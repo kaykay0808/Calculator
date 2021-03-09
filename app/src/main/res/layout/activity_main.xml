@@ -214,18 +214,130 @@
         app:layout_constraintTop_toBottomOf="@+id/goalsalary_text" />
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout2"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/ramme"
         android:layout_marginTop="@dimen/ramme"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/goalNetValue">
 
         <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="hint" />
+            android:hint="@string/todo" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/arrow_vector"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ramme"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toEndOf="@+id/textInputLayout2"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout2"
+        app:srcCompat="@drawable/ic_baseline_east_24" />
+
+    <TextView
+        android:id="@+id/monthly_treatments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/ramme"
+        android:text="@string/monthly_treatments"
+        app:layout_constraintBottom_toBottomOf="@+id/textInputLayout2"
+        app:layout_constraintStart_toEndOf="@+id/arrow_vector"
+        app:layout_constraintTop_toTopOf="@+id/textInputLayout2" />
+
+    <TextView
+        android:id="@+id/monthly_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test_verdi"
+        app:layout_constraintEnd_toEndOf="@+id/monthly_treatments"
+        app:layout_constraintStart_toStartOf="@+id/monthly_treatments"
+        app:layout_constraintTop_toBottomOf="@+id/monthly_treatments" />
+
+    <TextView
+        android:id="@+id/current_intake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/ramme"
+        android:text="@string/salary_with_current_intake"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout2" />
+
+    <TextView
+        android:id="@+id/per_client"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/treatment_per_client"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/current_intake" />
+
+    <TextView
+        android:id="@+id/current_intake_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/test_verdi"
+        app:layout_constraintBottom_toBottomOf="@+id/current_intake"
+        app:layout_constraintStart_toEndOf="@+id/current_intake"
+        app:layout_constraintTop_toTopOf="@+id/current_intake" />
+
+    <TextView
+        android:id="@+id/per_client_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/test_verdi"
+        app:layout_constraintBottom_toBottomOf="@+id/per_client"
+        app:layout_constraintStart_toEndOf="@+id/per_client"
+        app:layout_constraintTop_toTopOf="@+id/per_client" />
+
+    <TextView
+        android:id="@+id/intakeNeededToReachGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/intake_needed_to_reach_goal"
+        app:layout_constraintEnd_toStartOf="@+id/intakeNeededPerDay"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/per_client" />
+
+    <TextView
+        android:id="@+id/intakeNeededPerDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/intake_needed_per_day"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/intakeNeededToReachGoal"
+        app:layout_constraintTop_toBottomOf="@+id/per_client" />
+
+    <TextView
+        android:id="@+id/restNeedValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/test_verdi"
+        app:layout_constraintEnd_toEndOf="@+id/intakeNeededToReachGoal"
+        app:layout_constraintStart_toStartOf="@+id/intakeNeededToReachGoal"
+        app:layout_constraintTop_toBottomOf="@+id/intakeNeededToReachGoal" />
+
+    <TextView
+        android:id="@+id/rest_per_day_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/test_verdi"
+        app:layout_constraintEnd_toEndOf="@+id/intakeNeededPerDay"
+        app:layout_constraintStart_toStartOf="@+id/intakeNeededPerDay"
+        app:layout_constraintTop_toBottomOf="@+id/intakeNeededPerDay" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

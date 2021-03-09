@@ -10,5 +10,10 @@
     <string name="goal_gross">Mål brutto:</string>
     <string name="goal_net">Mål netto:</string>
     <string name="goal_salary">Mål lønn:</string>
+    <string name="monthly_treatments">Månedlig behandling:</string>
+    <string name="salary_with_current_intake">Lønn med nåværende inntak:</string>
+    <string name="treatment_per_client">Behandling per kunde:</string>
+    <string name="intake_needed_to_reach_goal">Må ta inn for å oppnå mål:</string>
+    <string name="intake_needed_per_day">Må ta inn per dag:</string>
 
 </resources>
