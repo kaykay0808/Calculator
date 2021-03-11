@@ -18,7 +18,9 @@ android {
 
         vectorDrawables.useSupportLibrary = true // New line added so vector can work
     }
-
+    buildFeatures {
+        viewBinding true
+    }
     buildTypes {
         release {
             minifyEnabled false
