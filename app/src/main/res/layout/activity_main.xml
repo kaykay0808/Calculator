@@ -111,14 +111,14 @@
         app:layout_constraintTop_toBottomOf="@+id/clientcount">
 
         <RadioButton
-            android:id="@+id/radioButton6"
+            android:id="@+id/bruttoRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/gross" />
 
         <RadioButton
-            android:id="@+id/radioButton7"
+            android:id="@+id/nettoRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="50dp"
@@ -127,7 +127,7 @@
             android:text="@string/net" />
 
         <RadioButton
-            android:id="@+id/radioButton9"
+            android:id="@+id/lønnRadioButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

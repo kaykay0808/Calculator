@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         binding.clientcount.text = numberOfClients.toString() // ID.text = variable name > converts to string
         binding.daysleftcount.text = numberOfWorkDays.toString() // ID.text = variable name > converts to string
 
-        // - and + symbols
+        // - and + symbols (ANTALL KUNDER)
         binding.substractClientImage.setOnClickListener {
             //find the function for decrement
             numberOfClients--;
@@ -44,6 +44,15 @@ class MainActivity : AppCompatActivity() {
             numberOfClients++;
             // Display the new value in the text view.
             binding.clientcount.text = numberOfClients.toString()
+        }
+        // - and + symbols (JOBB DAGER IGJEN)
+        binding.substractDaysleftImage.setOnClickListener {
+            numberOfWorkDays--;
+            binding.daysleftcount.text = numberOfWorkDays.toString()
+        }
+        binding.addDaysleftImage.setOnClickListener {
+            numberOfWorkDays++;
+            binding.daysleftcount.text = numberOfWorkDays.toString()
         }
     }
 
