@@ -36,6 +36,10 @@ class MainActivity : AppCompatActivity() {
         binding.clientcount.text = numberOfClients.toString() // ID.text = variable name > converts to string
         binding.daysleftcount.text = numberOfWorkDays.toString() // ID.text = variable name > converts to string
 
+        //convert hint_label here
+        binding.hintLabel.toString()
+
+
 
         // - and + symbols (ANTALL KUNDER)
         binding.substractClientImage.setOnClickListener {
@@ -59,19 +63,23 @@ class MainActivity : AppCompatActivity() {
             numberOfWorkDays++;
             binding.daysleftcount.text = numberOfWorkDays.toString()
         }
-        // radio button section
+        // RADIO BUTTON SECTION
 
         //binding.bruttoRadioButton
         //binding.nettoRadioButton
         //binding.lønnRadioButton
         binding.bruttoRadioButton.setOnClickListener {
             // don't know what to put here yet
+            binding.goalinput.hint = getString(R.string.goal_gross)
         }
         binding.nettoRadioButton.setOnClickListener {
             //Don't know what to put here
+            binding.goalinput.hint = getString(R.string.goal_net)
         }
         binding.lonnRadioButton.setOnClickListener {
             //don't know what to put here
+            binding.goalinput.hint = getString(R.string.goal_salary)
+
         }
 
     }
@@ -85,14 +93,17 @@ class MainActivity : AppCompatActivity() {
                 binding.bruttoRadioButton ->
                     if (checked) {
                         // Brutto
+                        binding.goalinput.hint = getString(R.string.goal_gross)
                     }
                 binding.nettoRadioButton ->
                     if (checked) {
                         // Netto
+                        binding.goalinput.hint = getString(R.string.goal_net)
                     }
                 binding.lonnRadioButton ->
                     if (checked) {
                         //Lønn
+                        binding.goalinput.hint = getString(R.string.goal_salary)
                     }
             }
         }
