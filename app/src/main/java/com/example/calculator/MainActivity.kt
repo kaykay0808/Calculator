@@ -93,17 +93,17 @@ class MainActivity : AppCompatActivity() {
                 binding.bruttoRadioButton ->
                     if (checked) {
                         // Brutto
-                        binding.goalinput.hint = getString(R.string.goal_gross)
+                        //binding.goalinput.hint = getString(R.string.goal_gross)<-- this is not needed here?
                     }
                 binding.nettoRadioButton ->
                     if (checked) {
                         // Netto
-                        binding.goalinput.hint = getString(R.string.goal_net)
+                        //binding.goalinput.hint = getString(R.string.goal_net)<-- this is not needed here?
                     }
                 binding.lonnRadioButton ->
                     if (checked) {
                         //Lønn
-                        binding.goalinput.hint = getString(R.string.goal_salary)
+                        //binding.goalinput.hint = getString(R.string.goal_salary)<-- this is not needed here?
                     }
             }
         }
