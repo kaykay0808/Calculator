@@ -12,6 +12,9 @@ class MainActivity : AppCompatActivity() {
     //når appen starter får verdien en deafult nummer som kan forandres
     private var numberOfClients: Int = 0; //variable name
     private var numberOfWorkDays: Int = 20; //variable namer
+    private var goalgross: Int = 125000
+    private var goalNet: Int = 0
+    private var goalSalary: Int = 0
 
     
     private lateinit var binding: ActivityMainBinding
