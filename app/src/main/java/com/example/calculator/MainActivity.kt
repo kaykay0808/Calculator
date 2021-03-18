@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity() {
     private var goalNet: Int = 0
     private var goalSalary: Int = 0
 
-    
+
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,21 +26,25 @@ class MainActivity : AppCompatActivity() {
         // set binding.(and the ID here?)
 
 
-
         initializeUi() // A part of function 2, we need to call the function from outside so it always start
 
 
-
     }
+
     //function 2
     //This function calls the initializeUi() inside oncreate
     private fun initializeUi() {
         // converts the views to string
         binding.clientcount.text = numberOfClients.toString() // ID.text = variable name > converts to string
         binding.daysleftcount.text = numberOfWorkDays.toString() // ID.text = variable name > converts to string
+        //binding.daysleftcount.setText(numberOfWorkDays.toString()) <----- this is a java method and is basicly the same as the code as above.
 
-        //convert hint_label here
-        binding.hintLabel.toString()
+
+        //convert userinput here (java nethid)
+        binding.goalinput.editText?.setText(goalgross.toString())
+        //binding.goalinput.editText?.setText(goalNet.toString()) <---put this inside the clicklistener on the represent radiobutton
+        //binding.goalinput.editText?.setText(goalSalary.toString()) <---put this inside the clicklistener on the represent radiobutton
+        //val test = binding.goalinput.editText?.text.toString() <---put this inside the clicklistener on the represent radiobutton
 
 
 
@@ -74,18 +78,22 @@ class MainActivity : AppCompatActivity() {
         binding.bruttoRadioButton.setOnClickListener {
             // don't know what to put here yet
             binding.goalinput.hint = getString(R.string.goal_gross)
+            binding.goalinput.editText?.setText(goalgross.toString()) //<--Default value when you start the app
         }
         binding.nettoRadioButton.setOnClickListener {
             //Don't know what to put here
             binding.goalinput.hint = getString(R.string.goal_net)
+            binding.goalinput.editText?.setText(goalNet.toString()) //<-- Default value when you start the app
         }
         binding.lonnRadioButton.setOnClickListener {
             //don't know what to put here
             binding.goalinput.hint = getString(R.string.goal_salary)
+            binding.goalinput.editText?.setText(goalSalary.toString()) // <-- Default value when you start the app
 
         }
 
     }
+
     fun onRadioButtonClicked(view: View) {
         if (view is RadioButton) {
             // Is the button now checked?
