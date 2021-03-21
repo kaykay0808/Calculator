@@ -2,9 +2,12 @@ package com.example.calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.RadioButton
 import com.example.calculator.databinding.ActivityMainBinding
+import kotlin.math.roundToInt
 
 //this is the class Jason is talking about
 class MainActivity : AppCompatActivity() {
@@ -15,6 +18,7 @@ class MainActivity : AppCompatActivity() {
     private var goalgross: Int = 125000
     private var goalNet: Int = 0
     private var goalSalary: Int = 0
+    private val comissionPercent: Double = 0.4
 
 
     private lateinit var binding: ActivityMainBinding
@@ -91,6 +95,38 @@ class MainActivity : AppCompatActivity() {
             binding.goalinput.editText?.setText(goalSalary.toString()) // <-- Default value when you start the app
 
         }
+
+        //Textchangelistener
+        binding.goalinput.editText?.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+                //this is the one you care about
+                if (s != null) {
+                    val number = s.toString().toInt()
+                    if (binding.bruttoRadioButton.isChecked) {
+                        goalgross = number
+                        goalNet = (goalgross  * 0.8).roundToInt()
+                        goalSalary = (goalNet * comissionPercent).roundToInt()
+                        binding.goalGrossValue.text = goalgross.toString()
+                        binding.goalNetValue.text = goalNet.toString()
+                        binding.goalSalaryValue.text = goalSalary.toString()
+                    }
+                    if (binding.nettoRadioButton.isChecked) {
+                        goalNet = number
+                        binding.goalNetValue.text = goalNet.toString()
+                    }
+                    if (binding.lonnRadioButton.isChecked) {
+                        goalSalary = number
+                    }
+                }
+
+            }
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+        })
 
     }
 
