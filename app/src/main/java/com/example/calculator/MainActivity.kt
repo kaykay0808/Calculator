@@ -101,7 +101,13 @@ class MainActivity : AppCompatActivity() {
             override fun afterTextChanged(s: Editable?) {
                 //this is the one you care about
                 if (s != null) {
-                    val number = s.toString().toInt()
+                    var number  = 0
+                    val numberString = s.toString()
+                    number = if (numberString.isEmpty()) {
+                        0
+                    } else {
+                        numberString.toInt()
+                    }
                     if (binding.bruttoRadioButton.isChecked) {
                         goalgross = number
                         goalNet = (goalgross  * 0.8).roundToInt()
