@@ -93,7 +93,8 @@ class MainActivity : AppCompatActivity() {
         }
         // - and + symbols (JOBB DAGER IGJEN)
         binding.substractDaysleftImage.setOnClickListener {
-            numberOfWorkDays--;
+            if (numberOfWorkDays <= 1) numberOfWorkDays = 1
+            else numberOfWorkDays--;
             binding.daysleftcount.text = numberOfWorkDays.toString()
         }
         binding.addDaysleftImage.setOnClickListener {
