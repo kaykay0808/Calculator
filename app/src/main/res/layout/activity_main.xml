@@ -323,7 +323,7 @@
         app:layout_constraintTop_toBottomOf="@+id/per_client" />
 
     <TextView
-        android:id="@+id/restNeedValue"
+        android:id="@+id/intakeNeedValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -333,7 +333,7 @@
         app:layout_constraintTop_toBottomOf="@+id/intakeNeededToReachGoal" />
 
     <TextView
-        android:id="@+id/rest_per_day_value"
+        android:id="@+id/intakeNeedPerDayValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
