@@ -179,7 +179,7 @@ class MainActivity : AppCompatActivity() {
         binding.arrowVector.setOnClickListener {
             //here is my next step
             val dailyIncome =
-                    binding.dailyInput.editText?.text?.toString()?.toInt()
+                    binding.dailyInput.editText?.text?.toString()?.toIntOrNull()
             if (dailyIncome != null){
                 monthlyIncome += dailyIncome
             }

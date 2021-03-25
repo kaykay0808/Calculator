@@ -37,29 +37,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        tools:text="0"
         android:textSize="@dimen/textstize_count"
         app:layout_constraintEnd_toEndOf="@+id/clients_textview"
         app:layout_constraintStart_toStartOf="@+id/clients_textview"
-        app:layout_constraintTop_toBottomOf="@+id/clients_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/clients_textview"
+        tools:text="0" />
 
     <TextView
         android:id="@+id/daysleftcount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        tools:text="0"
         android:textSize="@dimen/textstize_count"
         app:layout_constraintEnd_toEndOf="@+id/workdaysleft_textview"
         app:layout_constraintStart_toStartOf="@+id/workdaysleft_textview"
-        app:layout_constraintTop_toBottomOf="@+id/workdaysleft_textview" />
+        app:layout_constraintTop_toBottomOf="@+id/workdaysleft_textview"
+        tools:text="0" />
 
     <ImageView
         android:id="@+id/substract_client_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="@dimen/ramme"
+        android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/todo"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/clientcount"
         app:layout_constraintEnd_toStartOf="@+id/clientcount"
         app:layout_constraintTop_toTopOf="@+id/clientcount"
@@ -67,10 +69,12 @@
 
     <ImageView
         android:id="@+id/substract_daysleft_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginEnd="@dimen/ramme"
         android:contentDescription="@string/todo"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/daysleftcount"
         app:layout_constraintEnd_toStartOf="@+id/daysleftcount"
         app:layout_constraintTop_toTopOf="@+id/daysleftcount"
@@ -78,10 +82,12 @@
 
     <ImageView
         android:id="@+id/add_client_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="@dimen/ramme"
+        android:background="?android:attr/selectableItemBackground"
         android:contentDescription="@string/todo"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/clientcount"
         app:layout_constraintStart_toEndOf="@+id/clientcount"
         app:layout_constraintTop_toTopOf="@+id/clientcount"
@@ -89,10 +95,12 @@
 
     <ImageView
         android:id="@+id/add_daysleft_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="@dimen/ramme"
         android:contentDescription="@string/todo"
+        android:background="?android:attr/selectableItemBackground"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="@+id/daysleftcount"
         app:layout_constraintStart_toEndOf="@+id/daysleftcount"
         app:layout_constraintTop_toTopOf="@+id/daysleftcount"
@@ -115,8 +123,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/gross"
-            android:checked="true"/>
+            android:checked="true"
+            android:text="@string/gross" />
 
         <RadioButton
             android:id="@+id/nettoRadioButton"
@@ -233,13 +241,15 @@
 
     <ImageView
         android:id="@+id/arrow_vector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         android:layout_marginStart="@dimen/ramme"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintBottom_toBottomOf="@+id/dailyInput"
         app:layout_constraintStart_toEndOf="@+id/dailyInput"
         app:layout_constraintTop_toTopOf="@+id/dailyInput"
-        app:srcCompat="@drawable/ic_baseline_east_24" />
+        app:srcCompat="@drawable/ic_baseline_east_24"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/monthly_treatments"
