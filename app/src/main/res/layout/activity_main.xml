@@ -1,355 +1,362 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/display"
+<androidx.core.widget.NestedScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/clients_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/ramme"
-        android:layout_marginTop="@dimen/ramme"
-        android:text="@string/clients"
-        android:textSize="@dimen/textstize"
-        app:layout_constraintEnd_toStartOf="@+id/workdaysleft_textview"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/workdaysleft_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ramme"
-        android:text="@string/work_days_left"
-        android:textSize="@dimen/textstize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/clients_textview"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/clientcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="@dimen/textstize_count"
-        app:layout_constraintEnd_toEndOf="@+id/clients_textview"
-        app:layout_constraintStart_toStartOf="@+id/clients_textview"
-        app:layout_constraintTop_toBottomOf="@+id/clients_textview"
-        tools:text="0" />
-
-    <TextView
-        android:id="@+id/daysleftcount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="@dimen/textstize_count"
-        app:layout_constraintEnd_toEndOf="@+id/workdaysleft_textview"
-        app:layout_constraintStart_toStartOf="@+id/workdaysleft_textview"
-        app:layout_constraintTop_toBottomOf="@+id/workdaysleft_textview"
-        tools:text="0" />
-
-    <ImageView
-        android:id="@+id/substract_client_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="@dimen/ramme"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="@string/todo"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/clientcount"
-        app:layout_constraintEnd_toStartOf="@+id/clientcount"
-        app:layout_constraintTop_toTopOf="@+id/clientcount"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
-
-    <ImageView
-        android:id="@+id/substract_daysleft_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="@dimen/ramme"
-        android:contentDescription="@string/todo"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/daysleftcount"
-        app:layout_constraintEnd_toStartOf="@+id/daysleftcount"
-        app:layout_constraintTop_toTopOf="@+id/daysleftcount"
-        app:srcCompat="@drawable/ic_baseline_remove_24" />
-
-    <ImageView
-        android:id="@+id/add_client_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="@dimen/ramme"
-        android:background="?android:attr/selectableItemBackground"
-        android:contentDescription="@string/todo"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/clientcount"
-        app:layout_constraintStart_toEndOf="@+id/clientcount"
-        app:layout_constraintTop_toTopOf="@+id/clientcount"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <ImageView
-        android:id="@+id/add_daysleft_image"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="@dimen/ramme"
-        android:contentDescription="@string/todo"
-        android:background="?android:attr/selectableItemBackground"
-        android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="@+id/daysleftcount"
-        app:layout_constraintStart_toEndOf="@+id/daysleftcount"
-        app:layout_constraintTop_toTopOf="@+id/daysleftcount"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/ramme"
-        android:layout_marginTop="@dimen/ramme"
-        android:layout_marginEnd="@dimen/ramme"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/clientcount">
-
-        <RadioButton
-            android:id="@+id/bruttoRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:checked="true"
-            android:text="@string/gross" />
-
-        <RadioButton
-            android:id="@+id/nettoRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
-            android:layout_weight="1"
-            android:text="@string/net" />
-
-        <RadioButton
-            android:id="@+id/lonnRadioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/salary" />
-    </RadioGroup>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/goalinput"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/display"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:hint="@string/gross"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup">
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
 
 
-        <com.google.android.material.textfield.TextInputEditText
+        <TextView
+            android:id="@+id/clients_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ramme"
+            android:layout_marginTop="@dimen/ramme"
+            android:text="@string/clients"
+            android:textSize="@dimen/textstize"
+            app:layout_constraintEnd_toStartOf="@+id/workdaysleft_textview"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/workdaysleft_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ramme"
+            android:text="@string/work_days_left"
+            android:textSize="@dimen/textstize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/clients_textview"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/clientcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/textstize_count"
+            app:layout_constraintEnd_toEndOf="@+id/clients_textview"
+            app:layout_constraintStart_toStartOf="@+id/clients_textview"
+            app:layout_constraintTop_toBottomOf="@+id/clients_textview"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/daysleftcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="@dimen/textstize_count"
+            app:layout_constraintEnd_toEndOf="@+id/workdaysleft_textview"
+            app:layout_constraintStart_toStartOf="@+id/workdaysleft_textview"
+            app:layout_constraintTop_toBottomOf="@+id/workdaysleft_textview"
+            tools:text="0" />
+
+        <ImageView
+            android:id="@+id/substract_client_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/ramme"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/todo"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clientcount"
+            app:layout_constraintEnd_toStartOf="@+id/clientcount"
+            app:layout_constraintTop_toTopOf="@+id/clientcount"
+            app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+        <ImageView
+            android:id="@+id/substract_daysleft_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="@dimen/ramme"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/todo"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/daysleftcount"
+            app:layout_constraintEnd_toStartOf="@+id/daysleftcount"
+            app:layout_constraintTop_toTopOf="@+id/daysleftcount"
+            app:srcCompat="@drawable/ic_baseline_remove_24" />
+
+        <ImageView
+            android:id="@+id/add_client_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/ramme"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/todo"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/clientcount"
+            app:layout_constraintStart_toEndOf="@+id/clientcount"
+            app:layout_constraintTop_toTopOf="@+id/clientcount"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
+
+        <ImageView
+            android:id="@+id/add_daysleft_image"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/ramme"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@string/todo"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="@+id/daysleftcount"
+            app:layout_constraintStart_toEndOf="@+id/daysleftcount"
+            app:layout_constraintTop_toTopOf="@+id/daysleftcount"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ramme"
+            android:layout_marginTop="@dimen/ramme"
+            android:layout_marginEnd="@dimen/ramme"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clientcount">
+
+            <RadioButton
+                android:id="@+id/bruttoRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:checked="true"
+                android:text="@string/gross" />
+
+            <RadioButton
+                android:id="@+id/nettoRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="50dp"
+                android:layout_marginEnd="50dp"
+                android:layout_weight="1"
+                android:text="@string/net" />
+
+            <RadioButton
+                android:id="@+id/lonnRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/salary" />
+        </RadioGroup>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/goalinput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/gross"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup">
 
-    <TextView
-        android:id="@+id/goalgross_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/goal_gross"
-        app:layout_constraintBottom_toBottomOf="@+id/goalnnet_text"
-        app:layout_constraintEnd_toStartOf="@+id/goalnnet_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/goalnnet_text" />
 
-    <TextView
-        android:id="@+id/goalnnet_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ramme"
-        android:text="@string/goal_net"
-        app:layout_constraintEnd_toStartOf="@+id/goalsalary_text"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/goalgross_text"
-        app:layout_constraintTop_toBottomOf="@+id/goalinput" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/goalsalary_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/goal_salary"
-        app:layout_constraintBottom_toBottomOf="@+id/goalnnet_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/goalnnet_text"
-        app:layout_constraintTop_toTopOf="@+id/goalnnet_text" />
-
-    <TextView
-        android:id="@+id/goalGrossValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test_verdi"
-        app:layout_constraintEnd_toEndOf="@+id/goalgross_text"
-        app:layout_constraintStart_toStartOf="@+id/goalgross_text"
-        app:layout_constraintTop_toBottomOf="@+id/goalgross_text" />
-
-    <TextView
-        android:id="@+id/goalNetValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test_verdi"
-        app:layout_constraintEnd_toEndOf="@+id/goalnnet_text"
-        app:layout_constraintStart_toStartOf="@+id/goalnnet_text"
-        app:layout_constraintTop_toBottomOf="@+id/goalnnet_text" />
-
-    <TextView
-        android:id="@+id/goalSalaryValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test_verdi"
-        app:layout_constraintEnd_toEndOf="@+id/goalsalary_text"
-        app:layout_constraintStart_toStartOf="@+id/goalsalary_text"
-        app:layout_constraintTop_toBottomOf="@+id/goalsalary_text" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/dailyInput"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/ramme"
-        android:layout_marginTop="@dimen/ramme"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/goalNetValue">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/goalgross_text"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="number" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:text="@string/goal_gross"
+            app:layout_constraintBottom_toBottomOf="@+id/goalnnet_text"
+            app:layout_constraintEnd_toStartOf="@+id/goalnnet_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/goalnnet_text" />
 
-    <ImageView
-        android:id="@+id/arrow_vector"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="@dimen/ramme"
-        android:background="?android:attr/selectableItemBackground"
-        app:layout_constraintBottom_toBottomOf="@+id/dailyInput"
-        app:layout_constraintStart_toEndOf="@+id/dailyInput"
-        app:layout_constraintTop_toTopOf="@+id/dailyInput"
-        app:srcCompat="@drawable/ic_baseline_east_24"
-        tools:ignore="ContentDescription" />
+        <TextView
+            android:id="@+id/goalnnet_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ramme"
+            android:text="@string/goal_net"
+            app:layout_constraintEnd_toStartOf="@+id/goalsalary_text"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/goalgross_text"
+            app:layout_constraintTop_toBottomOf="@+id/goalinput" />
 
-    <TextView
-        android:id="@+id/monthly_treatments"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/ramme"
-        android:text="@string/monthly_treatments"
-        app:layout_constraintBottom_toBottomOf="@+id/dailyInput"
-        app:layout_constraintStart_toEndOf="@+id/arrow_vector"
-        app:layout_constraintTop_toTopOf="@+id/dailyInput" />
+        <TextView
+            android:id="@+id/goalsalary_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/goal_salary"
+            app:layout_constraintBottom_toBottomOf="@+id/goalnnet_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/goalnnet_text"
+            app:layout_constraintTop_toTopOf="@+id/goalnnet_text" />
 
-    <TextView
-        android:id="@+id/monthly_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/test_verdi"
-        app:layout_constraintEnd_toEndOf="@+id/monthly_treatments"
-        app:layout_constraintStart_toStartOf="@+id/monthly_treatments"
-        app:layout_constraintTop_toBottomOf="@+id/monthly_treatments" />
+        <TextView
+            android:id="@+id/goalGrossValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_verdi"
+            app:layout_constraintEnd_toEndOf="@+id/goalgross_text"
+            app:layout_constraintStart_toStartOf="@+id/goalgross_text"
+            app:layout_constraintTop_toBottomOf="@+id/goalgross_text" />
 
-    <TextView
-        android:id="@+id/current_intake"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/ramme"
-        android:text="@string/salary_with_current_intake"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/dailyInput" />
+        <TextView
+            android:id="@+id/goalNetValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_verdi"
+            app:layout_constraintEnd_toEndOf="@+id/goalnnet_text"
+            app:layout_constraintStart_toStartOf="@+id/goalnnet_text"
+            app:layout_constraintTop_toBottomOf="@+id/goalnnet_text" />
 
-    <TextView
-        android:id="@+id/per_client"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/treatment_per_client"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/current_intake" />
+        <TextView
+            android:id="@+id/goalSalaryValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_verdi"
+            app:layout_constraintEnd_toEndOf="@+id/goalsalary_text"
+            app:layout_constraintStart_toStartOf="@+id/goalsalary_text"
+            app:layout_constraintTop_toBottomOf="@+id/goalsalary_text" />
 
-    <TextView
-        android:id="@+id/current_intake_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/test_verdi"
-        app:layout_constraintBottom_toBottomOf="@+id/current_intake"
-        app:layout_constraintStart_toEndOf="@+id/current_intake"
-        app:layout_constraintTop_toTopOf="@+id/current_intake" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/dailyInput"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ramme"
+            android:layout_marginTop="@dimen/ramme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/goalNetValue">
 
-    <TextView
-        android:id="@+id/per_client_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:text="@string/test_verdi"
-        app:layout_constraintBottom_toBottomOf="@+id/per_client"
-        app:layout_constraintStart_toEndOf="@+id/per_client"
-        app:layout_constraintTop_toTopOf="@+id/per_client" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/intakeNeededToReachGoal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/intake_needed_to_reach_goal"
-        app:layout_constraintEnd_toStartOf="@+id/intakeNeededPerDay"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/per_client" />
+        <ImageView
+            android:id="@+id/arrow_vector"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/ramme"
+            android:background="?android:attr/selectableItemBackground"
+            app:layout_constraintBottom_toBottomOf="@+id/dailyInput"
+            app:layout_constraintStart_toEndOf="@+id/dailyInput"
+            app:layout_constraintTop_toTopOf="@+id/dailyInput"
+            app:srcCompat="@drawable/ic_baseline_east_24"
+            tools:ignore="ContentDescription" />
 
-    <TextView
-        android:id="@+id/intakeNeededPerDay"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/intake_needed_per_day"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/intakeNeededToReachGoal"
-        app:layout_constraintTop_toBottomOf="@+id/per_client" />
+        <TextView
+            android:id="@+id/monthly_treatments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ramme"
+            android:text="@string/monthly_treatments"
+            app:layout_constraintBottom_toBottomOf="@+id/dailyInput"
+            app:layout_constraintStart_toEndOf="@+id/arrow_vector"
+            app:layout_constraintTop_toTopOf="@+id/dailyInput" />
 
-    <TextView
-        android:id="@+id/intakeNeedValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/test_verdi"
-        app:layout_constraintEnd_toEndOf="@+id/intakeNeededToReachGoal"
-        app:layout_constraintStart_toStartOf="@+id/intakeNeededToReachGoal"
-        app:layout_constraintTop_toBottomOf="@+id/intakeNeededToReachGoal" />
+        <TextView
+            android:id="@+id/monthly_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/test_verdi"
+            app:layout_constraintEnd_toEndOf="@+id/monthly_treatments"
+            app:layout_constraintStart_toStartOf="@+id/monthly_treatments"
+            app:layout_constraintTop_toBottomOf="@+id/monthly_treatments" />
 
-    <TextView
-        android:id="@+id/intakeNeedPerDayValue"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/test_verdi"
-        app:layout_constraintEnd_toEndOf="@+id/intakeNeededPerDay"
-        app:layout_constraintStart_toStartOf="@+id/intakeNeededPerDay"
-        app:layout_constraintTop_toBottomOf="@+id/intakeNeededPerDay" />
+        <TextView
+            android:id="@+id/current_intake"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/ramme"
+            android:text="@string/salary_with_current_intake"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dailyInput" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/per_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/treatment_per_client"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/current_intake" />
+
+        <TextView
+            android:id="@+id/current_intake_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/test_verdi"
+            app:layout_constraintBottom_toBottomOf="@+id/current_intake"
+            app:layout_constraintStart_toEndOf="@+id/current_intake"
+            app:layout_constraintTop_toTopOf="@+id/current_intake" />
+
+        <TextView
+            android:id="@+id/per_client_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="@string/test_verdi"
+            app:layout_constraintBottom_toBottomOf="@+id/per_client"
+            app:layout_constraintStart_toEndOf="@+id/per_client"
+            app:layout_constraintTop_toTopOf="@+id/per_client" />
+
+        <TextView
+            android:id="@+id/intakeNeededToReachGoal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/intake_needed_to_reach_goal"
+            app:layout_constraintEnd_toStartOf="@+id/intakeNeededPerDay"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/per_client" />
+
+        <TextView
+            android:id="@+id/intakeNeededPerDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/intake_needed_per_day"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/intakeNeededToReachGoal"
+            app:layout_constraintTop_toBottomOf="@+id/per_client" />
+
+        <TextView
+            android:id="@+id/intakeNeedValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/test_verdi"
+            app:layout_constraintEnd_toEndOf="@+id/intakeNeededToReachGoal"
+            app:layout_constraintStart_toStartOf="@+id/intakeNeededToReachGoal"
+            app:layout_constraintTop_toBottomOf="@+id/intakeNeededToReachGoal" />
+
+        <TextView
+            android:id="@+id/intakeNeedPerDayValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/test_verdi"
+            app:layout_constraintEnd_toEndOf="@+id/intakeNeededPerDay"
+            app:layout_constraintStart_toStartOf="@+id/intakeNeededPerDay"
+            app:layout_constraintTop_toBottomOf="@+id/intakeNeededPerDay" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

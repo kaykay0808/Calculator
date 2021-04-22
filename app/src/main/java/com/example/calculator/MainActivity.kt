@@ -1,11 +1,9 @@
 package com.example.calculator
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.View
-import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
 import com.example.calculator.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
@@ -13,12 +11,13 @@ import kotlin.math.roundToInt
 class MainActivity : AppCompatActivity() {
 
     //når appen starter får verdien en deafult nummer som kan forandres
-    private var numberOfClients: Int = 1; //variable name
-    private var numberOfWorkDays: Int = 20; //variable name
+    private var numberOfClients: Int = 1 //variable name
+    private var numberOfWorkDays: Int = 20 //variable name
     private var goalgross: Int = 125000
     private var goalNet: Int = 0
     private var goalSalary: Int = 0
     private val comissionPercent: Double = 0.4
+
     // test section ↓
     private var monthlyIncome: Int = 0
 
@@ -38,6 +37,11 @@ class MainActivity : AppCompatActivity() {
 
 
         initializeUi() // A part of function 2, we need to call the function from outside so it always start
+        //Textchangelistener
+        setUpTextwatcher()
+
+        // Arrow vector ↓
+        setArrowClick()
 
 
     }
@@ -69,39 +73,30 @@ class MainActivity : AppCompatActivity() {
         //binding.monthlyValue.text = monthlyIncome.toString()
 
 
-
-
-
-
-
-
-
-
         // - and + symbols (ANTALL KUNDER)
         binding.substractClientImage.setOnClickListener {
             //find the function for decrement
             if (numberOfClients <= 1) numberOfClients = 1
-            else numberOfClients--;
+            else numberOfClients--
             // Display the new value in the text view.
             binding.clientcount.text = numberOfClients.toString()
         }
         binding.addClientImage.setOnClickListener {
             //find the function for increment
-            numberOfClients++;
+            numberOfClients++
             // Display the new value in the text view.
             binding.clientcount.text = numberOfClients.toString()
         }
         // - and + symbols (JOBB DAGER IGJEN)
         binding.substractDaysleftImage.setOnClickListener {
             if (numberOfWorkDays <= 1) numberOfWorkDays = 1
-            else numberOfWorkDays--;
+            else numberOfWorkDays--
             binding.daysleftcount.text = numberOfWorkDays.toString()
         }
         binding.addDaysleftImage.setOnClickListener {
-            numberOfWorkDays++;
+            numberOfWorkDays++
             binding.daysleftcount.text = numberOfWorkDays.toString()
         }
-
 
 
         // RADIO BUTTON SECTION ↓
@@ -124,14 +119,41 @@ class MainActivity : AppCompatActivity() {
 
 
 
+    }
 
+    private fun setArrowClick() {
+        binding.arrowVector.setOnClickListener {
+            //here is my next step
+            val dailyIncome =
+                    binding.dailyInput.editText?.text?.toString()?.toIntOrNull()
+            if (dailyIncome != null) {
+                monthlyIncome += dailyIncome
+            }
+            binding.monthlyValue.text = monthlyIncome.toString()
+            //updating the curent intake field ↓
+            curentIntake = (monthlyIncome * 0.8 * comissionPercent).roundToInt()
+            binding.currentIntakeValue.text = curentIntake.toString()
 
-        //Textchangelistener
+            //updating the treatment per client ↓
+            perClient = (monthlyIncome / numberOfClients)
+            binding.perClientValue.text = perClient.toString()
+
+            //updating intake needed ↓
+            intakeNeeded = (goalgross - monthlyIncome)
+            binding.intakeNeedValue.text = intakeNeeded.toString()
+
+            //updating intake needed per day ↓
+            intakeNeededPerDay = (goalgross - monthlyIncome) / numberOfWorkDays
+            binding.intakeNeedPerDayValue.text = intakeNeededPerDay.toString()
+        }
+    }
+
+    private fun setUpTextwatcher() {
         binding.goalinput.editText?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 //this is the one you care about
                 if (s != null) {
-                    var number  = 0
+                    val number: Int
                     val numberString = s.toString()
                     number = if (numberString.isEmpty()) {
                         0
@@ -140,7 +162,7 @@ class MainActivity : AppCompatActivity() {
                     }
                     if (binding.bruttoRadioButton.isChecked) {
                         goalgross = number
-                        goalNet = (goalgross  * 0.8).roundToInt()
+                        goalNet = (goalgross * 0.8).roundToInt()
                         goalSalary = (goalNet * comissionPercent).roundToInt()
                         binding.goalGrossValue.text = goalgross.toString()
                         binding.goalNetValue.text = goalNet.toString()
@@ -174,32 +196,6 @@ class MainActivity : AppCompatActivity() {
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
         })
-
-        // Arrow vector ↓
-        binding.arrowVector.setOnClickListener {
-            //here is my next step
-            val dailyIncome =
-                    binding.dailyInput.editText?.text?.toString()?.toIntOrNull()
-            if (dailyIncome != null){
-                monthlyIncome += dailyIncome
-            }
-            binding.monthlyValue.text = monthlyIncome.toString()
-            //updating the curent intake field ↓
-            curentIntake = (monthlyIncome * 0.8 * comissionPercent).roundToInt()
-            binding.currentIntakeValue.text = curentIntake.toString()
-
-            //updating the treatment per client ↓
-            perClient = (monthlyIncome / numberOfClients)
-            binding.perClientValue.text = perClient.toString()
-
-            //updating intake needed ↓
-            intakeNeeded = (goalgross - monthlyIncome)
-            binding.intakeNeedValue.text = intakeNeeded.toString()
-
-            //updating intake needed per day ↓
-            intakeNeededPerDay = (goalgross - monthlyIncome)/numberOfWorkDays
-            binding.intakeNeedPerDayValue.text = intakeNeededPerDay.toString()
-        }
     }
 
 
