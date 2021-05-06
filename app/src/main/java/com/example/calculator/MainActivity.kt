@@ -3,9 +3,11 @@ package com.example.calculator
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Menu
 import androidx.appcompat.app.AppCompatActivity
 import com.example.calculator.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
+
 
 //this is the class Jason is talking about
 class MainActivity : AppCompatActivity() {
@@ -35,6 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         //The toolbar section
+
         setSupportActionBar(binding.myToolbar)
 
 
@@ -47,6 +50,13 @@ class MainActivity : AppCompatActivity() {
 
 
     }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu, menu)
+        return true
+    }
+
+
 
     //function 2
     //This function calls the initializeUi() inside oncreate
@@ -118,7 +128,6 @@ class MainActivity : AppCompatActivity() {
             binding.goalinput.editText?.setText(goalSalary.toString()) // <-- Default value when you start the app
 
         }
-
 
 
     }
