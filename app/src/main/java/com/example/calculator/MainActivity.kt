@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        // set binding.(and the ID here?)
+
+        //The toolbar section
+        setSupportActionBar(binding.myToolbar)
 
 
         initializeUi() // A part of function 2, we need to call the function from outside so it always start
