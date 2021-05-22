@@ -8,13 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.calculator.databinding.ActivityMainBinding
 import kotlin.math.roundToInt
 
-
-//this is the class Jason is talking about
+// this is the class Jason is talking about
 class MainActivity : AppCompatActivity() {
 
-    //når appen starter får verdien en deafult nummer som kan forandres
-    private var numberOfClients: Int = 1 //variable name
-    private var numberOfWorkDays: Int = 20 //variable name
+    // når appen starter får verdien en deafult nummer som kan forandres
+    private var numberOfClients: Int = 1 // variable name
+    private var numberOfWorkDays: Int = 20 // variable name
     private var goalgross: Int = 125000
     private var goalNet: Int = 0
     private var goalSalary: Int = 0
@@ -28,7 +27,6 @@ class MainActivity : AppCompatActivity() {
     private var intakeNeeded: Int = 0
     private var intakeNeededPerDay: Int = 0
 
-
     private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,19 +34,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //The toolbar section
+        // The toolbar section
 
         setSupportActionBar(binding.myToolbar)
 
-
         initializeUi() // A part of function 2, we need to call the function from outside so it always start
-        //Textchangelistener
+        // Textchangelistener
         setUpTextwatcher()
 
         // Arrow vector ↓
         setArrowClick()
-
-
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
@@ -56,45 +51,41 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-
-
-    //function 2
-    //This function calls the initializeUi() inside oncreate
+    // function 2
+    // This function calls the initializeUi() inside oncreate
     private fun initializeUi() {
         // converts the views to string
         binding.clientcount.text = numberOfClients.toString() // ID.text = variable name > converts to string
         binding.daysleftcount.text = numberOfWorkDays.toString() // ID.text = variable name > converts to string
-        //binding.daysleftcount.setText(numberOfWorkDays.toString()) <----- this is a java method and is basicly the same as the code as above.
+        // binding.daysleftcount.setText(numberOfWorkDays.toString()) <----- this is a java method and is basicly the same as the code as above.
 
         binding.currentIntakeValue.text = curentIntake.toString()
         binding.perClientValue.text = perClient.toString()
         binding.intakeNeedValue.text = intakeNeeded.toString()
         binding.intakeNeedPerDayValue.text = intakeNeededPerDay.toString()
 
-
-        //convert userinput here (java method) ↓
+        // convert userinput here (java method) ↓
         binding.goalinput.editText?.setText(goalgross.toString())
-        //binding.goalinput.editText?.setText(goalNet.toString()) <---put this inside the clicklistener on the represent radiobutton
-        //binding.goalinput.editText?.setText(goalSalary.toString()) <---put this inside the clicklistener on the represent radiobutton
-        //val test = binding.goalinput.editText?.text.toString() <---put this inside the clicklistener on the represent radiobutton
+        // binding.goalinput.editText?.setText(goalNet.toString()) <---put this inside the clicklistener on the represent radiobutton
+        // binding.goalinput.editText?.setText(goalSalary.toString()) <---put this inside the clicklistener on the represent radiobutton
+        // val test = binding.goalinput.editText?.text.toString() <---put this inside the clicklistener on the represent radiobutton
 
-        //converts daily input here ↓ ?
-        //binding.dailyInput.editText?.setText(dailyIncome.toString())
+        // converts daily input here ↓ ?
+        // binding.dailyInput.editText?.setText(dailyIncome.toString())
 
         // converts monthly treatment here ↓
-        //binding.monthlyValue.text = monthlyIncome.toString()
-
+        // binding.monthlyValue.text = monthlyIncome.toString()
 
         // - and + symbols (ANTALL KUNDER)
         binding.substractClientImage.setOnClickListener {
-            //find the function for decrement
+            // find the function for decrement
             if (numberOfClients <= 1) numberOfClients = 1
             else numberOfClients--
             // Display the new value in the text view.
             binding.clientcount.text = numberOfClients.toString()
         }
         binding.addClientImage.setOnClickListener {
-            //find the function for increment
+            // find the function for increment
             numberOfClients++
             // Display the new value in the text view.
             binding.clientcount.text = numberOfClients.toString()
@@ -110,50 +101,46 @@ class MainActivity : AppCompatActivity() {
             binding.daysleftcount.text = numberOfWorkDays.toString()
         }
 
-
         // RADIO BUTTON SECTION ↓
         binding.bruttoRadioButton.setOnClickListener {
             // don't know what to put here yet
             binding.goalinput.hint = getString(R.string.goal_gross)
-            binding.goalinput.editText?.setText(goalgross.toString()) //<--Default value when you start the app
+            binding.goalinput.editText?.setText(goalgross.toString()) // <--Default value when you start the app
         }
         binding.nettoRadioButton.setOnClickListener {
-            //Don't know what to put here
+            // Don't know what to put here
             binding.goalinput.hint = getString(R.string.goal_net)
-            binding.goalinput.editText?.setText(goalNet.toString()) //<-- Default value when you start the app
+            binding.goalinput.editText?.setText(goalNet.toString()) // <-- Default value when you start the app
         }
         binding.lonnRadioButton.setOnClickListener {
-            //don't know what to put here
+            // don't know what to put here
             binding.goalinput.hint = getString(R.string.goal_salary)
             binding.goalinput.editText?.setText(goalSalary.toString()) // <-- Default value when you start the app
-
         }
-
-
     }
 
     private fun setArrowClick() {
         binding.arrowVector.setOnClickListener {
-            //here is my next step
+            // here is my next step
             val dailyIncome =
-                    binding.dailyInput.editText?.text?.toString()?.toIntOrNull()
+                binding.dailyInput.editText?.text?.toString()?.toIntOrNull()
             if (dailyIncome != null) {
                 monthlyIncome += dailyIncome
             }
             binding.monthlyValue.text = monthlyIncome.toString()
-            //updating the curent intake field ↓
+            // updating the curent intake field ↓
             curentIntake = (monthlyIncome * 0.8 * comissionPercent).roundToInt()
             binding.currentIntakeValue.text = curentIntake.toString()
 
-            //updating the treatment per client ↓
+            // updating the treatment per client ↓
             perClient = (monthlyIncome / numberOfClients)
             binding.perClientValue.text = perClient.toString()
 
-            //updating intake needed ↓
+            // updating intake needed ↓
             intakeNeeded = (goalgross - monthlyIncome)
             binding.intakeNeedValue.text = intakeNeeded.toString()
 
-            //updating intake needed per day ↓
+            // updating intake needed per day ↓
             intakeNeededPerDay = (goalgross - monthlyIncome) / numberOfWorkDays
             binding.intakeNeedPerDayValue.text = intakeNeededPerDay.toString()
         }
@@ -162,7 +149,7 @@ class MainActivity : AppCompatActivity() {
     private fun setUpTextwatcher() {
         binding.goalinput.editText?.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                //this is the one you care about
+                // this is the one you care about
                 if (s != null) {
                     val number: Int
                     val numberString = s.toString()
@@ -194,11 +181,8 @@ class MainActivity : AppCompatActivity() {
                         binding.goalGrossValue.text = goalgross.toString()
                         binding.goalNetValue.text = goalNet.toString()
                         binding.goalSalaryValue.text = goalSalary.toString()
-
-
                     }
                 }
-
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
@@ -209,7 +193,5 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-
     // function 3
-
 }
