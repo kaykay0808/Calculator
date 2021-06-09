@@ -10,6 +10,7 @@ Applikasjonen tar også av skatt beregningen for brukeren, og hvor mye man må t
 I dette prosjektet var jeg også innom Ktlint statisk kode analyser for første gang, slik at kodene fikk noe bedre struktur og format.
 Ved denne analysen lærte jeg mye om kvaliteten på mine koder 
 
+ENGLISH TRANSLATION:
 My first big major project in collaboration with my mentor.
 This app is a more complex budgeting app aimed at hairdressers with commission salaries.
 The user has the opportunity in this application to set goals for amounts to be earned for the month,
